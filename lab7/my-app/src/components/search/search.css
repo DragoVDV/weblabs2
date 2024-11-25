@@ -1,0 +1,37 @@
+/* search.css */
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрування форми по горизонталі */
+  margin: 20px; /* Відступ навколо форми */
+}
+
+input[type="text"] {
+  padding: 10px; /* Внутрішні відступи */
+  border: 2px solid #ccc; /* Колір і товщина рамки */
+  border-radius: 5px; /* Заокруглення країв */
+  font-size: 16px; /* Розмір шрифту */
+  transition: border-color 0.3s; /* Анімація зміни кольору рамки */
+}
+
+input[type="text"]:focus {
+  border-color: #007bff; /* Колір рамки при фокусі */
+  outline: none; /* Вимкнення стандартного обведення */
+}
+
+button {
+  padding: 10px 15px; /* Внутрішні відступи */
+  background-color: #007bff; /* Фоновий колір */
+  color: white; /* Колір тексту */
+  border: none; /* Без рамки */
+  border-radius: 5px; /* Заокруглення країв */
+  font-size: 16px; /* Розмір шрифту */
+  cursor: pointer; /* Зміна курсора при наведенні */
+  margin-left: 10px; /* Відступ зліва від поля вводу */
+  transition: background-color 0.3s; /* Анімація зміни кольору фону */
+}
+
+button:hover {
+  background-color: #0056b3; /* Темніший відтінок при наведенні */
+}

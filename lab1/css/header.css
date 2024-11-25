@@ -1,0 +1,163 @@
+
+
+.hero {
+    display: flex;
+    justify-content: center;
+    min-width: 1000px;
+    flex-shrink: 0;
+    height: 750px;
+    width: 100%;
+    background: url(/images/Bitmap.png) lightgray 0px 0px / 100% 100% no-repeat;
+    background-size: cover;       
+    background-position: center;   
+       
+}
+
+.container{
+    flex-direction: column;
+    
+    gap: 200px;
+    display: flex;
+}
+
+
+.hero .container .header_nav {
+   
+       
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    margin-top: 37px;
+    justify-content: space-between;
+    width: 808px;
+    height: 34px;
+    flex-shrink: 0;
+}
+
+.hero .container .header_nav .header_nav-logo {
+    display: flex;
+    width: 135px;
+    height: 25.833px;
+    padding: 0px 0.051px 0px 0.156px;
+    justify-content: center;
+    align-items: center;
+    gap: 6.066px;
+    flex-shrink: 0;
+    p{
+        fill: #FFF;
+        width: 96.067px;
+        height: 15.313px;
+        flex-shrink: 0;
+    }
+}
+
+.hero .container .header_nav .header_nav_list ul{
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 252px;
+    gap: 40px;
+    a{
+        color: #FFF;
+        text-align: center;
+        font-family: Rubik;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
+
+
+.hero .container .header_nav .header-nav-item-button {
+    a {
+      font-feature-settings: 'liga' off, 'clig' off;
+      color: #606B74;
+      font-family: Rubik;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      
+      display: inline-block; /* Makes it behave more like a button */
+      width: 90px;
+      height: 34px;
+      text-align: center;
+      line-height: 34px; /* Vertical centering */
+      border-radius: 4px;
+      background: var(--Greys-White, #FFF);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background-color: #606B74;
+        color: #FFF;
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  
+
+.container_hero{
+    gap: 132px;
+    display: flex;
+    width: 808px;
+    
+}
+
+.container_hero .container_hero_left{
+  
+    display: flex;
+    width: 440px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    
+    span{
+        opacity: 0.8;
+        color: #FFF;
+        font-feature-settings: 'liga' off, 'clig' off;
+
+        /* Label / Bold */
+        font-family: Rubik;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    p{
+        
+        color: #FFF;
+        font-feature-settings: 'liga' off, 'clig' off;
+        
+        /* Headers / H2 */
+        font-family: Merriweather;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;}
+}
+
+
+.container_hero .container_hero_right {
+   
+   
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px; /* Відступ між елементами всередині .container_hero_right */
+}
+
+.container_hero .container_hero_right p {
+    color: #FFF;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: Rubik;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+

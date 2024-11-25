@@ -1,0 +1,158 @@
+
+@media screen and (min-width: 2200px) {
+    .container{
+       
+        min-width:2200px;
+    }
+    .header_nav{
+        
+       max-width: 2200px;
+        
+    }
+    .header_nav_list ul
+    {
+     
+    
+     min-width: 900px;
+     
+     display: flex;
+     justify-content: space-between;
+     
+
+    }
+    a{
+        font-size: 20px !important;
+    }
+    .header-nav-item-button a{
+        width: 155px !important;
+        height: 56px !important;
+        line-height: 56px !important;
+        
+    }
+    .header_nav-logo{
+        width: 300px;
+        height: 300px;
+        
+    }
+.container_hero{
+    min-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+.container_hero_left{
+    width: 700px !important;
+    p{
+    font-size: 40px !important;
+}}
+.container_hero_left span{
+    
+    font-size: 22px !important;
+}
+    
+.container_hero_right{
+    gap: 20px !important;
+    svg{
+        transform: scale(1.5);
+    }
+    p{
+        font-size: 22px !important;
+    }
+}
+
+.info{
+    min-width: 1200px;
+    height: 500px !important;
+
+}
+.info_container{
+    display: flex;
+    min-width: 1200px;
+;
+
+}
+.info_container_left{
+    span{
+        font-size: 40px !important;
+    };
+    width: 600px !important;
+    p{
+        line-height: 40px !important;
+        font-size: 20px !important;
+    }
+    a{
+        width: 155px !important;
+        height: 56px !important;
+        line-height: 56px !important;
+    }
+}
+.info_container_right{
+    img{
+        overflow: hidden;
+        height: 500px;
+    }
+}
+.innovative{
+        height: 400px !important;
+}
+.container_innovative{
+
+    min-width: 1200px;
+    span{
+        font-size: 40px !important;
+    }
+}
+.innovative_container_undertext{
+    gap: 50px !important;
+    p{
+        line-height: 40px !important;
+        
+        width: 600px !important;
+        font-size: 20px !important;
+    }
+}
+.list{
+    min-width: 1200px !important;
+}
+.list_container{
+    min-width: 1200px !important;
+}
+.list_container_image{
+    
+    border: 1px solid black;
+    img{
+    
+    width: 450px !important;
+    height:auto !important;
+}}
+.left-item{
+   
+   p{  font-size: 27px !important;
+   }
+   span{
+    font-size: 16px !important;
+   }
+}
+.list_container_items_left{
+    width: 50%;
+}
+.list_container_items_right{
+    width: 50%;
+}
+.right-item{
+    p{
+        font-size: 27px !important;
+    }
+    span{
+       font-size: 18px !important;
+    }
+}
+.footer_container{
+    max-width: 2200px !important;
+    justify-content: space-between !important;
+}
+}
+
+
+
+
+

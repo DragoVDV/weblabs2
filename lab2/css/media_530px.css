@@ -1,0 +1,33 @@
+@media screen and (max-width: 530px){
+    .info{
+        min-height: 847px;
+    }
+    .info_container_right{
+        margin-top: auto;
+    }
+    .footer_container{
+        padding: 20px 20px;
+        min-height: 150px;
+        flex-direction: column;
+    }
+    .footer_logo{
+        order: 0;
+    }
+    .footer_email{
+        order: 1;
+    }
+    .footer{
+        min-height: 150px;
+    }
+    .footer_container_other{
+        justify-content: space-between;
+        width: 80%;
+        order: 2;
+       
+    }
+    .list_container_image{
+        img{
+            width: 85%;
+        }
+    }
+}

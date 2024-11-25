@@ -1,0 +1,43 @@
+/* Overview.css */
+
+.overview-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.overview-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.overview-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.overview-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.overview-price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #4caf50;
+  margin: 10px 0;
+}
+
+.overview-type {
+  font-size: 1rem;
+  color: #777;
+}

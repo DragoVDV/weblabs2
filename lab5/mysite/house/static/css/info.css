@@ -1,0 +1,119 @@
+.info{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background: var(--Greys-White, #FFF);
+    width: 90%;
+    height: 399px;
+    flex-shrink: 0;
+   
+   
+}
+.info .info_container{
+   
+    display: flex;
+    justify-content: center ;
+    width: 808px;
+        
+    
+}
+
+.info .info_container_left{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    width: 50%;
+   
+    flex-shrink: 0;
+    
+}
+
+.info_container_left{ 
+    p{
+        white-space: normal;
+        word-wrap: break-word; /* Переносить слова, які не вміщаються в рядок */
+        overflow-wrap: break-word;
+        opacity: 1;
+        margin-top: 10px;
+        color: var(--Greys-Light-grey, #646D70);
+        font-family: Rubik;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 26px; /* 185.714% */
+
+    }
+}
+.info_container_left span{
+    color: var(--Color-Dark-green, #222F33);
+    font-feature-settings: 'liga' off, 'clig' off;
+
+    /* Headers / H2 */
+    font-family: Merriweather;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+}
+.info_container_left{
+    
+    a{
+        color: #606B74;
+      
+        font-feature-settings: 'liga' off, 'clig' off;
+
+        /* Label / Medium */
+        font-family: Rubik;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+}
+.info_container_left {
+    a {
+      display: inline-block; /* Ensures width and height are applied */
+      width: 90px;
+      height: 34px;
+      margin-top: 41px;
+      border-radius: 4px;
+      border: 1px solid var(--Greys-Light-grey, #646D70);
+      text-align: center; /* Centers text horizontally */
+      line-height: 34px; /* Centers text vertically */
+      color: #606B74; /* Default color for the link */
+      text-decoration: none; /* Removes default underline */
+  
+      transition: all 0.3s ease;
+  
+      &:hover {
+        background-color: #606B74; 
+        color: #FFF;
+        transform: scale(1.05);    
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+      }
+    }
+  }
+
+  .info .info_container {
+    display: flex;
+    justify-content: center;
+    width: 808px;
+   
+    overflow: hidden; /* Забезпечує, що контент не виходить за межі контейнера */
+}
+
+.info .info_container_right {
+    margin-left: auto;
+    flex-shrink: 0;
+    max-width: 50%; /* Обмежує ширину зображення відносно контейнера */
+    overflow: hidden; /* Приховує частину зображення, що може виходити за межі */
+}
+
+.info .info_container_right img {
+    
+  
+    display: block; /* Усуває зайвий простір навколо зображення */
+    object-fit: cover; /* Додає можливість "вписати" зображення в контейнер */
+}

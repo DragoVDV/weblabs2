@@ -1,0 +1,68 @@
+
+/* Heading styling */
+h1 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Label styling */
+label {
+    display: block; /* Stack labels above inputs */
+    margin-bottom: 5px; /* Space below labels */
+    font-weight: bold; /* Make labels bold */
+    color: #555; /* Medium gray text color */
+}
+
+/* Input and textarea styling */
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="file"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Add padding inside inputs */
+    margin-bottom: 15px; /* Space below inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 3px; /* Slightly rounded corners */
+    font-size: 16px; /* Increase font size */
+}
+
+/* Input focus styling */
+input:focus,
+textarea:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styling */
+button {
+    width: 100%; /* Full width for buttons */
+    padding: 10px; /* Add padding inside button */
+    background-color: #007bff; /* Primary color for button */
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 3px; /* Slightly rounded corners */
+    font-size: 16px; /* Increase font size */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3; /* Darken button on hover */
+}
+
+/* Cancel button styling */
+.cancel-button {
+    display: inline-block; /* Inline block for spacing */
+    margin-top: 10px; /* Space above cancel button */
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Primary color for cancel link */
+    font-size: 16px; /* Increase font size */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+/* Cancel button hover effect */
+.cancel-button:hover {
+    color: #0056b3; /* Darken color on hover */
+}

@@ -1,0 +1,306 @@
+main{
+    margin: auto;
+    max-width: 90%;
+}
+
+.menu{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Загальні стилі для секції menu */
+.menu {
+
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 140px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилі для форми пошуку */
+.search_menu form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Стилі для посилання всередині create_menu */
+.create_menu a {
+    padding: 10px 30px;
+    border: 1px solid wheat;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(254, 254, 254);
+    font-weight: bold;
+    transition: all 0.3s ease; /* Додаємо плавний перехід для всіх змін */
+}
+
+/* Ховер ефект для create_menu */
+.create_menu:hover {
+    background-color: #727777;
+}
+
+/* Ховер ефект для посилання */
+.create_menu a:hover {
+    color: #fdfdfd;
+    background-color: rgb(128, 134, 139);
+}
+
+/* Активний стан (на клік) */
+.create_menu a:active {
+    transform: scale(0.95); /* Зменшення масштабу при натисканні */
+}
+
+/* Плавний перехід для зменшення масштабу */
+.create_menu a:focus, .create_menu a:active {
+    transition: transform 0.3s ease;
+}
+
+
+/* Стилі для кнопок */
+.search_menu button {
+    padding: 10px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search_menu button[type="reset"] {
+    background-color: #f44336; /* Червона кнопка для скидання */
+}
+
+/* Ховер ефект для кнопок */
+.search_menu button:hover {
+    background-color: #45a049;
+}
+
+.search_menu button[type="reset"]:hover {
+    background-color: #e53935;
+}
+
+/* Стилі для інпуту */
+.input_search_menu input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 200px;
+    transition: border-color 0.3s ease;
+}
+
+/* Ховер ефект для інпуту */
+.input_search_menu input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.section-items{
+
+    display: flex;
+}
+
+.item-edit{
+    height: 800px;
+    border-right: 1px solid rgb(170, 165, 165);
+
+    gap: 30px;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+}
+.item-sort{
+    display: flex;
+    flex-direction: column;
+    
+    gap: 30px;
+}
+.switch{
+    padding-top: 3px;
+}
+.item-sort p{
+
+    font-size: 35px;
+    font-weight: 550;
+}
+.item-list{
+    width: 70%;
+}
+
+/* Загальний стиль для лейбла */
+form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+}
+
+/* Стилі для перемикача */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Стиль слайдера */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+/* Стан, коли перемикач увімкнений */
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.item-count p{
+    font-size: 30px;
+}
+.item-count{
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.item-count form{
+    gap: 30px;
+    align-items: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-count button{
+     font-size: 18px;
+     align-items: center;
+     text-align: center;
+  
+     border: 1px solid black;
+     border-radius: 15px;
+     padding: 10px 30px;
+}
+
+hr{
+    opacity: 0.4;
+    margin: 0 auto;    
+    width: 80%;
+    border-bottom: 1px solid black;
+}
+.section-items{
+    gap: 30px;
+}
+.item-list{
+    
+    display: flex;
+    flex-wrap: wrap;
+  
+    gap: 20px;
+    padding-top: 30px;
+    
+}
+.item {
+    display: flex;
+    flex-direction: column; /* Вирівнюємо контент по вертикалі */
+   
+    
+    width: calc(33.33% - 20px);
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.item img {
+    width: 100%;           
+    height: 170x;         
+    object-fit: cover;      
+    display: block;         
+}
+.item-info {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item-name{
+    font-size: 24px;
+    font-weight: 550;
+}
+
+.item-lastupdate{
+    opacity: 0.6;
+}
+
+.item-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.item-buttons-detail{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.item-buttons button{
+    text-align: center;
+     width: 90px;
+     padding: 7px 20px;
+     border-radius: 15px;
+     border: 1px solid black;
+     background-color: rgba(255, 0, 0, 0.416);
+     font-size: 16px;
+}
+
+.item-buttons a{
+    background-color: #727777;
+    color: white;
+    text-align: center;
+     width: 90px;
+    padding: 7px 20px;
+     border-radius: 15px;
+     border: 1px solid black;
+     font-size: 16px;
+}

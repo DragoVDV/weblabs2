@@ -1,0 +1,19 @@
+/* src/CreateItem/CreateItem.css */
+.create-item-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Take the full height of the viewport */
+    background-color: #f7f7f7; /* Optional: light background for contrast */
+    padding: 20px; /* Optional: some padding */
+  }
+  
+  .ant-form {
+    max-width: 400px; /* Optional: max width for the form */
+    width: 100%; /* Full width within the max width */
+    background: white; /* Optional: white background for form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  }
+  

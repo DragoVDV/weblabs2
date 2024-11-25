@@ -1,0 +1,21 @@
+@media  screen  and (max-width:900px){
+
+    .list{
+        max-height: 1000px !important;
+       }
+       .list_container{
+        justify-content: flex-start !important;
+        flex-direction: column;
+       }
+    
+       .list_container_image{
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+       }
+       .list_container_items{
+        display: flex;
+        justify-content: center;
+    
+       }
+    } 

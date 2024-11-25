@@ -1,0 +1,119 @@
+/* Загальний контейнер */
+.cart-container {
+    width: 80%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Заголовок */
+  .cart-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 20px;
+  }
+  
+  /* Завантаження */
+  .cart-loading {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #888;
+  }
+  
+  /* Порожній кошик */
+  .cart-empty {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #999;
+  }
+  
+  /* Картка товару */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  
+  /* Зображення товару */
+  .cart-item-image {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+  
+  /* Деталі товару */
+  .cart-item-details {
+    flex: 1;
+  }
+  
+  /* Назва товару */
+  .cart-item-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Ціна товару */
+  .cart-item-price,
+  .cart-item-type {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  /* Контейнер для кількості днів оренди */
+  .cart-item-days {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Кнопки зміни днів оренди */
+  .cart-item-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .cart-item-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Кількість днів */
+  .cart-item-days-count {
+    margin: 0 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  /* Кнопка видалення товару */
+  .cart-item-remove {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .cart-item-remove:hover {
+    background-color: #d9363e;
+  }
+  
+  /* Загальна сума */
+  .cart-total {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #222;
+  }
+  

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import House, Cart
+from .models import CartItem, House, Cart
 from .serializers import HouseSerializer
 from rest_framework import status
 from django.db.models import Q
@@ -90,61 +90,116 @@ class DeleteItemAPIView(APIView):
 class AddToCartAPIView(APIView):
     def post(self, request, id):
         try:
+            rental_days = request.data.get('rental_days', 1)  # Отримуємо кількість днів оренди
+            rental_days = max(1, int(rental_days))  # Мінімум 1 день
+
             # Отримуємо або створюємо кошик
-            cart, created = Cart.objects.get_or_create(id=1)  # Використовуйте логіку для конкретного користувача
+            cart, created = Cart.objects.get_or_create(id=1)  # Логіка для конкретного користувача
 
             # Отримуємо будинок за його ID
             house = get_object_or_404(House, id=id)
 
             # Перевіряємо, чи будинок вже є в кошику
-            if cart.houses.filter(id=house.id).exists():
+            cart_item, created = CartItem.objects.get_or_create(cart=cart, house=house)
+
+            if not created:
                 return Response(
                     {"message": f"House is already in the cart."},
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
-            # Додаємо будинок до кошика
-            cart.houses.add(house)
-            cart.save()
+            # Зберігаємо кількість днів оренди
+            cart_item.rental_days = rental_days
+            cart_item.save()
 
-            return Response({"message": f"House added to cart."}, status=status.HTTP_200_OK)
+            return Response({"message": f"House added to cart for {rental_days} days."}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+
 
 class GetCartItemsAPIView(APIView):
     def get(self, request):
         try:
-            # Отримуємо кошик (наприклад, для користувача)
-            cart = Cart.objects.first()  # Використовуйте ID користувача або сесію
+           
+            cart = Cart.objects.first()  
             if not cart:
                 return Response({"message": "Cart is empty"}, status=status.HTTP_200_OK)
 
-            # Список будинків у кошику
-            houses = cart.houses.all()
-            print(houses)
-            serializer = HouseSerializer(houses, many=True)
+           
+            cart_items = CartItem.objects.filter(cart=cart).select_related('house')
 
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            total_price = 0
+            data = []
+            for cart_item in cart_items:
+                house_data = HouseSerializer(cart_item.house).data
+                rental_days = cart_item.rental_days
+                total_price += cart_item.house.price * rental_days
+                data.append({
+                    "house": house_data,
+                    "rental_days": rental_days,
+                })
+
+            return Response({"items": data, "total_price": total_price}, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class UpdateRentalDaysAPIView(APIView):
+    def put(self, request, id):
+        rental_days = request.data.get('rentalDays')
+        if not rental_days:
+            return Response({"error": "Rental days not provided"}, status=status.HTTP_400_BAD_REQUEST)
+
+        cart = Cart.objects.first()
+        if not cart:
+            return Response({"error": "Cart not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        cart_item = get_object_or_404(CartItem, cart=cart, house__id=id)
+        cart_item.rental_days = rental_days
+        cart_item.save()
+
         
+       
+
+        return Response({
+            "message": f"Rental days updated to {rental_days}",
+            
+        }, status=status.HTTP_200_OK)
+
 
 class RemoveFromCartAPIView(APIView):
     def delete(self, request, id):
         try:
-            # Отримуємо кошик
-            cart = Cart.objects.first()  # Використовуйте логіку для конкретного користувача
+            cart = Cart.objects.first()
             if not cart:
                 return Response({"message": "Cart is empty"}, status=status.HTTP_404_NOT_FOUND)
 
-            # Отримуємо будинок за ID
-            house = get_object_or_404(House, id=id)
+            cart_item = get_object_or_404(CartItem, cart=cart, house__id=id)
+            cart_item.delete()
 
-            # Видаляємо будинок з кошика
-            cart.houses.remove(house)
-            cart.save()
+           
+          
 
-            return Response({"message": f"House {house.title} removed from cart."}, status=status.HTTP_200_OK)
+            return Response({
+                "message": f"House removed from cart.",
+                
+            }, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        
+def calculate_total_price(cart):
+    """
+    Обчислює загальну ціну для кошика.
+    """
+    return sum(
+        item.house.price * item.rental_days
+        for item in CartItem.objects.filter(cart=cart)
+    )
+
+class GetCartTotalPriceAPIView(APIView):
+    def get(self, request):
+        cart = Cart.objects.first()  # Логіка для конкретного користувача
+        if not cart:
+            return Response({"total_price": 0}, status=status.HTTP_200_OK)
+
+        total_price = calculate_total_price(cart)
+        return Response({"total_price": total_price}, status=status.HTTP_200_OK)

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { message } from "antd";
+import { message, Spin } from "antd"; // Імпортуємо Spin з Ant Design
 import axios from "axios";
 import CardItem from "../../../components/ItemCard/itemCard";
 import { Header, CardsContainer, Catalogfunc } from "./catalog_styles";
@@ -16,6 +16,7 @@ const Catalog = () => {
   const [sortOption, setSortOption] = useState("");
   const [houseType, setHouseType] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false); // Додаємо стан завантаження
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -33,6 +34,7 @@ const Catalog = () => {
   // Завантаження даних
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Увімкнення стану завантаження
       try {
         const response = await axios.get("http://127.0.0.1:8000/api/", {
           params: {
@@ -44,6 +46,8 @@ const Catalog = () => {
         setHouses(response.data);
       } catch (error) {
         console.error("Error loading houses: ", error);
+      } finally {
+        setLoading(false); // Вимкнення стану завантаження
       }
     };
 
@@ -78,7 +82,8 @@ const Catalog = () => {
   };
 
   const handleAddToCart = (id) => {
-    dispatch(addToCartBackend(id))
+    console.log(id);
+    dispatch(addToCartBackend({ houseId: id, rentalDays: 1 }))
       .unwrap()
       .catch((err) => {
         message.error(`Failed to add house to cart: ${err}`);
@@ -103,25 +108,31 @@ const Catalog = () => {
           Create
         </StyledButton>
       </div>
-      <CardsContainer>
-        {houses.length > 0 ? (
-          houses.map((house) => (
-            <CardItem
-              key={house.id}
-              title={house.title}
-              text={house.description}
-              imageSrc={`http://127.0.0.1:8000${house.image}`}
-              price={house.price}
-              id={house.id}
-              type={house.type}
-              onDelete={() => handleDelete(house.id)} // Видалення об'єкта
-              onAddToCart={() => handleAddToCart(house.id)} // Додавання до кошика
-            />
-          ))
-        ) : (
-          <p>No houses found.</p>
-        )}
-      </CardsContainer>
+      {loading ? ( // Відображення індикатора завантаження
+        <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+          <Spin size="large" />
+        </div>
+      ) : (
+        <CardsContainer>
+          {houses.length > 0 ? (
+            houses.map((house) => (
+              <CardItem
+                key={house.id}
+                title={house.title}
+                text={house.description}
+                imageSrc={`http://127.0.0.1:8000${house.image}`}
+                price={house.price}
+                id={house.id}
+                type={house.type}
+                onDelete={() => handleDelete(house.id)} // Видалення об'єкта
+                onAddToCart={() => handleAddToCart(house.id)} // Додавання до кошика
+              />
+            ))
+          ) : (
+            <p>No houses found.</p>
+          )}
+        </CardsContainer>
+      )}
     </div>
   );
 };
